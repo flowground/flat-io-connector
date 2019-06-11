@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "collaborator": {
+            "required": true,
+            "type": "string"
+        },
+        "sharingKey": {
+            "type": "string"
+        }
+    }
+}

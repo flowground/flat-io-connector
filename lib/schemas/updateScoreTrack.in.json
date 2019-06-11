@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "track": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Update an existing track.\n",
+            "example": {
+                "default": true,
+                "state": "draft",
+                "synchronizationPoints": [
+                    {
+                        "measureUuid": "5132a788-69e6-d0c6-84ec-4bd858658d7c",
+                        "time": 0,
+                        "type": "measure"
+                    },
+                    {
+                        "time": 213,
+                        "type": "end"
+                    }
+                ],
+                "title": "Rick Astley - Never Gonna Give You Up",
+                "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            "properties": {
+                "default": {
+                    "description": "True if the track should be used as default audio source",
+                    "type": "boolean"
+                },
+                "state": {
+                    "default": "draft",
+                    "description": "State of the track",
+                    "enum": [
+                        "draft",
+                        "completed",
+                        "deleted"
+                    ],
+                    "type": "string"
+                },
+                "synchronizationPoints": {
+                    "items": {
+                        "description": "A track synchronization point",
+                        "example": {
+                            "measureUuid": "5132a788-69e6-d0c6-84ec-4bd858658d7c",
+                            "time": 0,
+                            "type": "measure"
+                        },
+                        "properties": {
+                            "measureUuid": {
+                                "description": "The measure unique identifier",
+                                "format": "uuid",
+                                "type": "string"
+                            },
+                            "time": {
+                                "description": "The corresponding time in seconds",
+                                "type": "number"
+                            },
+                            "type": {
+                                "description": "The type of the synchronization point. If the type is `measure`, the measure uuid must be present in `measureUuid`",
+                                "enum": [
+                                    "measure",
+                                    "end"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "time"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "Title of the track",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

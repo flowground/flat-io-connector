@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "revision": {
+            "required": true,
+            "type": "string"
+        },
+        "sharingKey": {
+            "type": "string"
+        },
+        "parts": {
+            "type": "string"
+        },
+        "format": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "json",
+                "mxl",
+                "xml",
+                "mp3",
+                "wav",
+                "midi",
+                "thumbnail.png"
+            ]
+        },
+        "onlyCached": {
+            "type": "boolean"
+        }
+    }
+}

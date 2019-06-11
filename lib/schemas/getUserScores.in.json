@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "user": {
+            "required": true,
+            "type": "string"
+        },
+        "parent": {
+            "type": "string"
+        }
+    }
+}

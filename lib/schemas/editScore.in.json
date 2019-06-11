@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Edit the score metadata",
+            "example": {
+                "privacy": "private"
+            },
+            "properties": {
+                "creationType": {
+                    "description": "The type of creation (an orginal, an arrangement)",
+                    "enum": [
+                        "original",
+                        "arrangement",
+                        "other"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Description of the creation",
+                    "maxLength": 1000,
+                    "type": "string"
+                },
+                "license": {
+                    "description": "License of the creation. Read more about the Creative Commons licenses on https://creativecommons.org/licenses/\n",
+                    "enum": [
+                        "copyright",
+                        "cc0",
+                        "cc-by",
+                        "cc-by-sa",
+                        "cc-by-nd",
+                        "cc-by-nc",
+                        "cc-by-nc-sa",
+                        "cc-by-nc-nd"
+                    ],
+                    "type": "string"
+                },
+                "privacy": {
+                    "description": "The score main privacy mode.\n\n- `public`: The score is public on the Internet. This one can be accessible at the url `https://flat.io/score/{score}` and can be modified and administred by specified collaborators users.\n- `private`: The score is private and can be only accessed, modified and administred by specified collaborators users.\n- `privateLink`: The score is private but can be accessed using a private link `htmlUrl` or the private key in the property `sharingKey`.\n- `organizationPublic`: _Available only with [Flat for Education](https://flat.io/edu)._ The score is public in the organization: users of the same organization can access to this one. The score can be modified and administred by specified collaborators users.\n\nThe score can also be individually shared to a set of users or groups using the different collaborators API methods.\n\nWhen a file is synchronized from an external source (e.g. Google Drive) and the sharing options are changed on the source, Flat will chose the best privacy mode for the file.\n\nWhen using a [Flat for Education](https://flat.io/edu) account, some of the modes may not be available if disabled by an administrator of the organization (e.g. by default the `public` mode is not available).\n",
+                    "enum": [
+                        "public",
+                        "private",
+                        "organizationPublic",
+                        "privateLink"
+                    ],
+                    "type": "string"
+                },
+                "sharingKey": {
+                    "description": "When using the `privacy` mode `privateLink`, this property can be used to set a custom sharing key, otherwise a new key will be generated.",
+                    "pattern": "^[a-f0-9]{128}$",
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "Tags describing the score",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "description": "The title of the score",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

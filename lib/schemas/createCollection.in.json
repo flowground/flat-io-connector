@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "example": {
+                "privacy": "private",
+                "title": "Jazz scores"
+            },
+            "properties": {
+                "title": {
+                    "description": "The title of the collection",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "user": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

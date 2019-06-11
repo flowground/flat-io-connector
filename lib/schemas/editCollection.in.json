@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "collection": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Edit the collection metadata",
+            "properties": {
+                "title": {
+                    "description": "The title of the collection",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

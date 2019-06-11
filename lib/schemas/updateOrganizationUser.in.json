@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "user": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "User update as an organization admin",
+            "properties": {
+                "organizationRole": {
+                    "description": "User's Organization Role (for Edu users only)",
+                    "enum": [
+                        "admin",
+                        "billing",
+                        "teacher",
+                        "user"
+                    ],
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Password of the new account",
+                    "format": "password",
+                    "minLength": 6,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

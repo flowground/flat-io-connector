@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A new created revision",
+            "example": {
+                "autosave": true,
+                "data": "<score-partwise version=\"3.0\"></score-partwise>",
+                "description": "New revision",
+                "history": [
+                    {
+                        "args": {
+                            "measureUuid": "0be9f739-3213-f312-bb0a-00ad0c787ef7",
+                            "previousUuid": "888cb742-2110-a050-ba71-28300ba6d61f"
+                        },
+                        "fnc": "action.AddMeasure",
+                        "id": "000000000000000000000090",
+                        "userId": "000000000000000000000010"
+                    }
+                ]
+            },
+            "properties": {
+                "autosave": {
+                    "description": "Must be set to `true` if the revision was created automatically.\n",
+                    "type": "boolean"
+                },
+                "data": {
+                    "description": "The data of the score file. It must be a MusicXML 3 file (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI file (`audio/midi`) or a Flat.json (aka Adagio.json) file.\n\nBinary payloads (`vnd.recordare.musicxml` and `audio/midi`) can be encoded in Base64, in this case the `dataEncoding` property must match the encoding used for the API request.\n",
+                    "example": "<score-partwise version=\"3.0\"></score-partwise>",
+                    "type": "string"
+                },
+                "dataEncoding": {
+                    "description": "The optional encoding of the score data. This property must match the encoding used for the `data` property.",
+                    "enum": [
+                        "base64"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A description associated to the revision",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data"
+            ],
+            "type": "object"
+        }
+    }
+}

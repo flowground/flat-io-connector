@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "Creation of a classroom",
+            "example": {
+                "name": "Music Theory Course",
+                "section": "Music Theory 101"
+            },
+            "properties": {
+                "name": {
+                    "description": "The name of the new class",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "section": {
+                    "description": "The section of the new class",
+                    "maxLength": 255,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "type": "object"
+        }
+    }
+}

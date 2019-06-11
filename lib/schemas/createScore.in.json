@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "A new created score",
+            "example": {
+                "data": "<score-partwise version=\"3.0\"></score-partwise>",
+                "googleDriveFolder": "0B-0000000000000000",
+                "privacy": "private",
+                "title": "My new score"
+            },
+            "properties": {
+                "collection": {
+                    "description": "Unique identifier of a collection where the score will be created.\nIf no collection identifier is provided, the score will be stored in the `root` directory.\n",
+                    "type": "string"
+                },
+                "data": {
+                    "description": "The data of the score file. It must be a MusicXML 3 file (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI file (`audio/midi`) or a Flat.json (aka Adagio.json) file.\n\nBinary payloads (`vnd.recordare.musicxml` and `audio/midi`) can be encoded in Base64, in this case the `dataEncoding` property must match the encoding used for the API request.\n",
+                    "example": "<score-partwise version=\"3.0\"></score-partwise>",
+                    "type": "string"
+                },
+                "dataEncoding": {
+                    "description": "The optional encoding of the score data. This property must match the encoding used for the `data` property.",
+                    "enum": [
+                        "base64"
+                    ],
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "If this is an imported file, its filename",
+                    "type": "string"
+                },
+                "googleDriveFolder": {
+                    "description": "If the user uses Google Drive and this properties is specified, the file will be created in this directory. The currently user creating the file must be granted to write in this directory.\n",
+                    "type": "string"
+                },
+                "privacy": {
+                    "description": "The score main privacy mode.\n\n- `public`: The score is public on the Internet. This one can be accessible at the url `https://flat.io/score/{score}` and can be modified and administred by specified collaborators users.\n- `private`: The score is private and can be only accessed, modified and administred by specified collaborators users.\n- `privateLink`: The score is private but can be accessed using a private link `htmlUrl` or the private key in the property `sharingKey`.\n- `organizationPublic`: _Available only with [Flat for Education](https://flat.io/edu)._ The score is public in the organization: users of the same organization can access to this one. The score can be modified and administred by specified collaborators users.\n\nThe score can also be individually shared to a set of users or groups using the different collaborators API methods.\n\nWhen a file is synchronized from an external source (e.g. Google Drive) and the sharing options are changed on the source, Flat will chose the best privacy mode for the file.\n\nWhen using a [Flat for Education](https://flat.io/edu) account, some of the modes may not be available if disabled by an administrator of the organization (e.g. by default the `public` mode is not available).\n",
+                    "enum": [
+                        "public",
+                        "private",
+                        "organizationPublic",
+                        "privateLink"
+                    ],
+                    "type": "string"
+                },
+                "source": {
+                    "example": {
+                        "googleDrive": "0B-0000000000000001"
+                    },
+                    "properties": {
+                        "googleDrive": {
+                            "description": "If the score is a file on Google Drive, this field property must contain its identifier. To use this method, the Drive file must be public or the Flat Drive App must have access to the file.\n",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "title": {
+                    "description": "The title of the new score. If the title is too long, the API may trim this one.\n\nIf this title is not specified, the API will try to (in this order):\n  - Use the title contained in the file (e.g. [`movement-title`](https://usermanuals.musicxml.com/MusicXML/Content/EL-MusicXML-movement-title.htm) or [`credit-words`](https://usermanuals.musicxml.com/MusicXML/Content/EL-MusicXML-credit-words.htm) for [MusicXML](http://www.musicxml.com/) files).\n  - Use the name of the file for files from a specified `source` (e.g. Google Drive) or the one in the `filename` property\n  - Set a default title (e.g. \"New Music Score\")\n",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "privacy"
+            ],
+            "type": "object"
+        }
+    }
+}

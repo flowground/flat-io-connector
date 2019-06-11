@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "class": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Assignment creation details",
+            "example": {
+                "attachments": [
+                    {
+                        "score": "0000000000000000",
+                        "type": "flat"
+                    },
+                    {
+                        "type": "link",
+                        "url": "https://flat.io/developers"
+                    }
+                ],
+                "description": "Get started with Flat",
+                "dueDate": "2017-07-12T13:56:19.613Z",
+                "scheduledDate": "2017-06-20T13:56:19.613Z",
+                "title": "First assignment"
+            },
+            "properties": {
+                "attachments": {
+                    "items": {
+                        "description": "Attachment creation for an assignment or stream post.\nThis attachment must contain a `score` or an `url`, all the details of this one will be resolved and returned as `ClassAttachment` once the assignment or stream post is created.\n",
+                        "example": {
+                            "score": "000000000000000001",
+                            "sharingMode": "copy",
+                            "type": "flat"
+                        },
+                        "properties": {
+                            "score": {
+                                "description": "A unique Flat score identifier. The user creating the assignment must at least have read access to the document. If the user has admin rights, new group permissions will be automatically added for the\nteachers and students of the class.\n",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "The type of the attachment posted",
+                                "enum": [
+                                    "flat",
+                                    "link",
+                                    "exercise"
+                                ],
+                                "type": "string"
+                            },
+                            "url": {
+                                "description": "The URL of the attachment.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "Description and content of the assignment",
+                    "type": "string"
+                },
+                "dueDate": {
+                    "description": "The due date of this assignment, late submissions will be marked as paste due. If not set, the assignment won't have a due date.\n",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "scheduledDate": {
+                    "description": "The publication (scheduled) date of the assignment.\nIf this one is specified, the assignment will only be listed to the teachers of the class.\n",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Title of the assignment",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

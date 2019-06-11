@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "sharingKey": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Options to fork the score",
+            "properties": {
+                "collection": {
+                    "description": "Unique identifier of a collection where the score will be copied.\nIf no collection identifier is provided, the score will be stored in the `root` directory.\n",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

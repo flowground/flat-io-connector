@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "class": {
+            "required": true,
+            "type": "string"
+        },
+        "user": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "invitation": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

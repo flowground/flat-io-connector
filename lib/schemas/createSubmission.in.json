@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "class": {
+            "required": true,
+            "type": "string"
+        },
+        "assignment": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Assignment Submission creation",
+            "example": {
+                "attachments": [
+                    {
+                        "score": "58c4955a226ffff257211a8d",
+                        "title": "Hello - Student",
+                        "type": "flat"
+                    }
+                ],
+                "studentComment": "Here is my great creation",
+                "submit": true
+            },
+            "properties": {
+                "attachments": {
+                    "items": {
+                        "description": "Attachment creation for an assignment or stream post.\nThis attachment must contain a `score` or an `url`, all the details of this one will be resolved and returned as `ClassAttachment` once the assignment or stream post is created.\n",
+                        "example": {
+                            "score": "000000000000000001",
+                            "sharingMode": "copy",
+                            "type": "flat"
+                        },
+                        "properties": {
+                            "score": {
+                                "description": "A unique Flat score identifier. The user creating the assignment must at least have read access to the document. If the user has admin rights, new group permissions will be automatically added for the\nteachers and students of the class.\n",
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "The type of the attachment posted",
+                                "enum": [
+                                    "flat",
+                                    "link",
+                                    "exercise"
+                                ],
+                                "type": "string"
+                            },
+                            "url": {
+                                "description": "The URL of the attachment.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "returnFeedback": {
+                    "description": "The feedback associated with the return",
+                    "type": "string"
+                },
+                "studentComment": {
+                    "description": "An optionnal comment sent by the student when submitting his work\n",
+                    "type": "string"
+                },
+                "submit": {
+                    "description": "If `true`, the submission will be marked as done",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

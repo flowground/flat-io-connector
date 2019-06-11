@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "role": {
+            "type": "string",
+            "enum": [
+                "user",
+                "teacher",
+                "admin"
+            ]
+        },
+        "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 50
+        },
+        "next": {
+            "type": "string"
+        },
+        "previous": {
+            "type": "string"
+        }
+    }
+}

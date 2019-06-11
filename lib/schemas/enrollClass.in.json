@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "enrollmentCode": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

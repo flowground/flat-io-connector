@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "state": {
+            "type": "string",
+            "enum": [
+                "active",
+                "inactive",
+                "archived"
+            ],
+            "default": "active"
+        }
+    }
+}

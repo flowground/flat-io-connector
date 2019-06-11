@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "class": {
+            "required": true,
+            "type": "string"
+        },
+        "assignment": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Assignment copy operation",
+            "example": {
+                "classroom": "0000000000000000"
+            },
+            "properties": {
+                "classroom": {
+                    "description": "The destination classroom where the assignment will be copied",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "classroom"
+            ],
+            "type": "object"
+        }
+    }
+}

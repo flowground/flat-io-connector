@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Add a collaborator to a resource.",
+            "example": {
+                "aclAdmin": false,
+                "aclRead": true,
+                "aclWrite": true,
+                "userEmail": "jdoe@flat.io"
+            },
+            "properties": {
+                "aclAdmin": {
+                    "default": false,
+                    "description": "`True` if the related user can can manage the current document, i.e. changing the document permissions and deleting the document\n",
+                    "type": "boolean"
+                },
+                "aclRead": {
+                    "default": true,
+                    "description": "`True` if the related user can read the score. (probably true if the user has a permission on the document).\n",
+                    "type": "boolean"
+                },
+                "aclWrite": {
+                    "default": false,
+                    "description": "`True` if the related user can modify the score.\n",
+                    "type": "boolean"
+                },
+                "group": {
+                    "description": "The unique identifier of a Flat group",
+                    "type": "string"
+                },
+                "user": {
+                    "description": "The unique identifier of a Flat user",
+                    "type": "string"
+                },
+                "userEmail": {
+                    "description": "Fill this field to invite an individual user by email.\n",
+                    "type": "string"
+                },
+                "userToken": {
+                    "description": "Token received in an invitation to join the score.\n",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "User creation",
+            "properties": {
+                "email": {
+                    "description": "Email of the new account",
+                    "format": "email",
+                    "type": "string"
+                },
+                "locale": {
+                    "default": "en",
+                    "description": "The user language",
+                    "enum": [
+                        "en",
+                        "es",
+                        "fr",
+                        "de",
+                        "it",
+                        "ja",
+                        "ko",
+                        "nl",
+                        "pl",
+                        "pt",
+                        "ro",
+                        "ru",
+                        "zh-Hans"
+                    ],
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Password of the new account",
+                    "format": "password",
+                    "minLength": 6,
+                    "type": "string"
+                },
+                "username": {
+                    "description": "Username of the new account",
+                    "pattern": "^[A-Za-z0-9\\-_.]+$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "username",
+                "password"
+            ],
+            "type": "object"
+        }
+    }
+}

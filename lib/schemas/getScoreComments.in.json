@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "score": {
+            "required": true,
+            "type": "string"
+        },
+        "sharingKey": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "document",
+                "inline"
+            ]
+        },
+        "sort": {
+            "type": "string",
+            "enum": [
+                "date"
+            ]
+        },
+        "direction": {
+            "type": "string",
+            "enum": [
+                "asc",
+                "desc"
+            ]
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "class": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Update of a classroom",
+            "example": {
+                "name": "Music Theory Course",
+                "section": "Music Theory 101"
+            },
+            "properties": {
+                "name": {
+                    "description": "The name of the class",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "section": {
+                    "description": "The section of the class",
+                    "maxLength": 255,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "parent": {
+            "type": "string",
+            "default": "root"
+        },
+        "sort": {
+            "type": "string",
+            "enum": [
+                "creationDate",
+                "title"
+            ]
+        },
+        "direction": {
+            "type": "string",
+            "enum": [
+                "asc",
+                "desc"
+            ]
+        },
+        "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 25
+        },
+        "next": {
+            "type": "string"
+        },
+        "previous": {
+            "type": "string"
+        }
+    }
+}

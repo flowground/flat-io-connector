@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The parameters to create an organization invitation",
+            "example": {
+                "email": "edu@flat.io",
+                "organizationRole": "teacher"
+            },
+            "properties": {
+                "email": {
+                    "description": "The email address you want to send the invitation to",
+                    "type": "string"
+                },
+                "organizationRole": {
+                    "description": "User's Organization Role (for Edu users only)",
+                    "enum": [
+                        "admin",
+                        "billing",
+                        "teacher",
+                        "user"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

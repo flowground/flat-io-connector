@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "collection": {
+            "required": true,
+            "type": "string"
+        },
+        "sharingKey": {
+            "type": "string"
+        }
+    }
+}
